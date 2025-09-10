@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #303952;
+}
+
+.toolbox-container{
+    height: 5rem;
+    background-color: #596275;
+    display: flex;
+    align-items: center;
+}
+
+.toolbox-container > *{
+    margin-left: 4rem;
+    border-radius: 2rem 2rem 2rem 2rem;
+}
+
+.priority-btn-container{
+    height: 3.5rem;
+    width: 16rem;
+    background-color: #786fa6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.toolbox-priority-color{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.ticket-btn-container{    
+    height: 3.5rem;
+    width: 8rem;
+    background-color: #786fa6;
+}
+
+
+.lightblue{
+    background-color: #778beb;
+}
+.lightgreen{
+    background-color: lightgreen;
+}
+
+.lightyellow{
+    background-color: #f7d794;
+}
+
+.lightred{
+    background-color: #e14641;
+}
