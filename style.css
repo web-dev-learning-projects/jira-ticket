@@ -39,6 +39,14 @@ body{
     height: 3.5rem;
     width: 8rem;
     background-color: #786fa6;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn{
+    width: 30%;
+    background-color: #778beb;
 }
 
 
@@ -55,4 +63,32 @@ body{
 
 .lightred{
     background-color: #e14641;
+}
+
+.modal-container{
+    height: 50%;
+    width: 40%;
+    background-color: aquamarine;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) ;
+}
+
+
+.modal-content{
+    display: flex;
+    height: 80%;
+    width: 100%;
+}
+
+.ticket-text-input{
+    width: 90%;
+    height: 100%;
+    outline: none;
+    resize: none;
+}
+
+.hidden{
+    display: none;
 }
