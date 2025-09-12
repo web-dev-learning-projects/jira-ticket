@@ -17,17 +17,20 @@
             <div class="lightred    toolbox-priority-color"></div>
         </div>
         <div class="ticket-btn-container">
-            <button class="add btn" id="add-action-btn">
+            <button class="add-note-btn-modal btn" id="add-action-btn">
                 <i class="fa-solid fa-plus"></i>
             </button>
-            <button class="remove btn">
+            <button class="delete-note-btn btn" disabled>
                 <i class="fa-solid fa-trash"></i>
             </button>
         </div>
     </div>
 
     <!-- Main container -->
-    <main class="main-container"></main>
+    <main class="main-container">
+        <div class="note-card-container" id="note-card-container">
+        </div>
+    </main>
 
     <!-- Add Modal -->
     <div class="modal-container hidden" id="addNoteModal">
@@ -35,19 +38,24 @@
             <div class="modal-title">
                 <h3>Add New Note</h3>
             </div>
-            <div class="modal-close-btn"><i class="fa-solid fa-x"></i></div>
+            <button id="closeModalBtn" class="modal-close-btn"><i class="fa-solid fa-x"></i></button>
         </div>
         <div class="modal-content">
-            <textarea spellcheck="true" name="ticket-test" id="ticket-test" rows="10" class="ticket-text-input"></textarea>
-            <div class="priority-btns">
+            <input type="text" name="new-note-title" id="new-note-title" required>
+            <textarea spellcheck="true" name="new-ticket-text" id="new-ticket-text" rows="10" class="ticket-text-input"></textarea>
+            <div class="priority-btns" id="new-note-color">
                 <div class="lightblue   toolbox-priority-color"></div>
                 <div class="lightgreen  toolbox-priority-color"></div>
                 <div class="lightyellow toolbox-priority-color"></div>
                 <div class="lightred    toolbox-priority-color"></div>
             </div>
         </div>
-        <div class="modal-footer"></div>
+        <div class="modal-footer">
+            <button class="add-btn btn" id="addNewNoteBtn">Add</button>
+            <button class="close-btn btn" id="closeNoteModal">Cancel</button>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/short-unique-id@5.3.2/dist/short-unique-id.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>
