@@ -12,8 +12,9 @@ const noteModalColor = document.getElementById("new-note-color");
 
 const uid = new ShortUniqueId({ length: 5 });
 
-const tickets = {};
+const tickets = [];
 
+// Modal close and open
 addBtn.addEventListener("click", () => {
     addNoteModal.classList.remove('hidden');
 });
@@ -27,7 +28,7 @@ closeModalFooterBtn.addEventListener("click", () => {
 })
 
 addNewNoteBtn.addEventListener("click", () =>{
-    let noteColor = "lightred";
+    let noteColor = addNoteModal.querySelector('.modal-content > .priority-btns > .toolbox-priority-color.selected').classList[0];
     let noteTitle = noteModalTitle.value;
     let noteContent = noteModalContent.value;
     if(noteTitle !== "" && noteContent !== ""){
@@ -45,7 +46,7 @@ function addNewNote(noteColor, noteTitle, noteContent){
         "content": noteContent,
     }
     const id = uid.rnd();
-    tickets[id] = ticket;
+    tickets.push(ticket);
     localStorage.setItem("jira-tickets", JSON.stringify(tickets));
     showTickets();
 }
@@ -80,5 +81,15 @@ function removeNote(){
 
 }
 
+
+const modalPriorityColor = Array.from(addNoteModal.querySelectorAll('.modal-content > .priority-btns > .toolbox-priority-color'));
+modalPriorityColor.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        modalPriorityColor.forEach((ele) => {
+            ele.classList.remove('selected');
+        })
+        e.target.classList.add('selected');
+    });
+});
 
 showTickets();

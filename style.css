@@ -190,6 +190,7 @@ textarea{
     width: 100%;
     outline: none;
     border: none;
+    background-color: #555;
 }
 
 .noteContentText{
@@ -202,4 +203,8 @@ textarea{
 
 .noteContentText:focus {
     border: 3px solid #7dafff;
+}
+
+.selected{
+    border: 3px solid white;
 }
