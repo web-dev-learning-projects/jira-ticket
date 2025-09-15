@@ -60,21 +60,44 @@ function showTickets(){
             const noteCard = document.createElement("div");
             noteCard.setAttribute("class", "note-card card");
             let noteCardInnerHtml = `
+        <button type="button" class="deleteBtn hidden"><i class="fa-solid fa-trash"></i><button>
         <div class="card-header">                
             <div class="card-color ${color}"></div>
             <h3 class="card-title">${title}</h3>
         </div>
         <div class="card-body">
-            <textarea name="noteText" id="noteText" rows="10" class="noteContentText">${content}</textarea>
+            <textarea name="noteText" rows="10" class="noteContentText" readOnly>${content}</textarea>
         </div>
         <div class="card-footer">
-            <button class="btn"><i class="fa-solid fa-lock"></i></button>
-            <button class="btn"><i class="fa-solid fa-lock-open"></i></button>
+            <div class="priority-color-edit-container">
+                <div class="lightblue   card-priority-color ${color=='lightblue' ? 'selected': ''}"></div>
+                <div class="lightgreen  card-priority-color ${color=='lightgreen' ? 'selected': ''}"></div>
+                <div class="lightyellow card-priority-color ${color=='lightyellow' ? 'selected': ''}"></div>
+                <div class="lightred    card-priority-color ${color=='lightred' ? 'selected': ''}"></div>
+            </div>
+            <button class="btn" id="editBtn"><i class="fa-solid fa-lock"></i></button>
         </div>`;
             noteCard.innerHTML = noteCardInnerHtml;
+            noteCard.querySelector("#editBtn").addEventListener("click", () => {editCard(noteCard);})
             noteCardsContainer.appendChild(noteCard);
         }
     )
+}
+
+
+function editCard(card){
+    // first
+    const editBtn = card.querySelector("#editBtn");
+    if(editBtn.querySelector(".fa-lock")){
+        editBtn.innerHTML = `<i class="fa-solid fa-lock-open"></i>`;
+        card.querySelector(".noteContentText").readOnly = false;
+        card.querySelector(".deleteBtn").classList.remove("hidden");
+    }else{
+        console.log("unlocked")
+        editBtn.innerHTML = `<i class="fa-solid fa-lock"></i>`;
+        card.querySelector(".noteContentText").readOnly = true;
+        card.querySelector(".deleteBtn").classList.add("hidden");
+    }
 }
 
 function removeNote(){

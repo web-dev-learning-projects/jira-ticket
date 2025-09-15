@@ -96,9 +96,7 @@ body{
     resize: none;
 }
 
-.hidden{
-    display: none;
-}
+
 
 .main-container{
     width: 100%;
@@ -124,7 +122,7 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    position: relative;
 }
 
 .card:hover{
@@ -207,4 +205,44 @@ textarea{
 
 .selected{
     border: 3px solid white;
+}
+
+.deleteBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    background-color: #e63946;
+    padding: 0.4rem;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+
+.deleteBtn:hover {
+    background-color: #d62839;
+    transform: translate(40%, -40%) scale(1.1);
+}
+
+.priority-color-edit-container{
+    display: flex;
+    gap: 2px;
+}
+
+.card-priority-color{
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+}
+
+.hidden{
+    display: none;
 }
