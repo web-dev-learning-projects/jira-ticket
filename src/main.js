@@ -3,7 +3,7 @@ import { showTickets } from "./tickets.js";
 import { setupUI } from "./ui.js";
 
 (() => {
-    const tickets = JSON.parse(loadTickets());
+    const tickets = loadTickets();
     setupUI(tickets);
     showTickets();
 })();
