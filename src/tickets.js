@@ -2,11 +2,12 @@ import { uid } from "./utils.js";
 import { loadTickets, saveTickets } from "./storage.js";
 
 
+let tickets = loadTickets();
+
 export function showTickets(){
     const noteCardsContainer = document.getElementById("note-card-container");
     noteCardsContainer.innerHTML = "";
     
-    let tickets = loadTickets();
     Object.values(tickets).forEach(({id, color, title, content}) => {
             const noteCard = document.createElement("div");
             noteCard.setAttribute("id", id);
@@ -62,7 +63,7 @@ function editCard(card, id){
     }
 }
 
-export function addNewNote(tickets, noteColor, noteTitle, noteContent){
+export function addNewNote(noteColor, noteTitle, noteContent){
     let ticket_id = uid();
     const ticket = {
         "id": ticket_id,

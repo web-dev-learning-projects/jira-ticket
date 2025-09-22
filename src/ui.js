@@ -1,6 +1,6 @@
 import {addNewNote, } from "./tickets.js"
 
-export function setupUI(tickets){
+export function setupUI(){
     const addBtn = document.getElementById("add-action-btn");
     const addNoteModal = document.getElementById("addNoteModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
@@ -30,7 +30,7 @@ export function setupUI(tickets){
         let noteTitle = noteModalTitle.value;
         let noteContent = noteModalContent.value;
         if(noteTitle !== "" && noteContent !== ""){
-            addNewNote(tickets, noteColor, noteTitle, noteContent);
+            addNewNote(noteColor, noteTitle, noteContent);
         }
         noteModalTitle.value = "";
         noteModalContent.value = "";
