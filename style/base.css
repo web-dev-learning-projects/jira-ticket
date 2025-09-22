@@ -5,5 +5,48 @@
 }
 
 body {
+    font-family: 'Inter', sans-serif;
+    color: #f1f2f6;
     background-color: #303952;
+    line-height: 1.5;
+    background-color: #303952;
+}
+
+
+/* Headings */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* Paragraphs & inputs */
+p, input, textarea, button {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* Inputs */
+input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+}
+
+/* Card titles */
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Empty state text */
+.empty-state h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    color: #dcdde1;
 }
