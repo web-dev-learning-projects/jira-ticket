@@ -1,22 +1,144 @@
 .modal-container {
-    height: 50%;
-    width: 40%;
-    background-color: aquamarine;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 40%;
+    max-width: 500px;   /* so it doesn’t get too wide */
+    min-width: 280px;   /* usable on mobile without queries */
+    background-color: #fefefe;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.modal-title h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #e63946;
 }
 
 .modal-content {
     display: flex;
-    height: 80%;
-    width: 100%;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-grow: 1;
+}
+
+#new-note-title {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#new-note-title:focus {
+    border-color: #778beb;
+    box-shadow: 0 0 0 2px rgba(119,139,235,0.2);
 }
 
 .ticket-text-input {
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     outline: none;
     resize: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ticket-text-input:focus {
+    border-color: #778beb;
+    box-shadow: 0 0 0 2px rgba(119,139,235,0.2);
+}
+
+.priority-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.toolbox-priority-color {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.15s ease, border 0.2s ease;
+}
+
+.toolbox-priority-color:hover {
+    transform: scale(1.1);
+}
+
+.toolbox-priority-color.selected {
+    border: 3px solid #333;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #ddd;
+}
+
+.modal-footer .btn {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.modal-footer .btn:hover {
+    transform: translateY(-2px);
+}
+
+.add-btn {
+    background-color: #77ec41;
+    color: #fff;
+}
+
+.add-btn:hover {
+    background-color: #5ec82f;
+}
+
+.close-btn {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.close-btn:hover {
+    background-color: #c72d38;
 }
