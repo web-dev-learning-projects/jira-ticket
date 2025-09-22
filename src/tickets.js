@@ -6,19 +6,26 @@ let tickets = loadTickets();
 
 export function showTickets(){
     const noteCardsContainer = document.getElementById("note-card-container");
+    const emptyState = document.getElementById("empty-state");
     noteCardsContainer.innerHTML = "";
-    
+    if (!tickets || Object.keys(tickets).length === 0) {
+        emptyState.classList.remove("hidden");
+        container.classList.add("hidden");
+        return;
+    }
+    emptyState.classList.add("hidden");
+    noteCardsContainer.classList.remove("hidden");
     Object.values(tickets).forEach(({id, color, title, content}) => {
             const noteCard = document.createElement("div");
             noteCard.setAttribute("id", id);
             noteCard.setAttribute("class", "note-card card close");
             let noteCardInnerHtml = `
-        <button type="button" class="deleteBtn hidden" id="noteDeleteBtn-${id}">
-            <i class="fa-solid fa-trash"></i>
-        <button>
         <div class="card-header">                
             <div class="card-color ${color}" id="priority-${id}"></div>
             <input class="card-title" type="text" readonly value="${title}" id="title-${id}"/>
+            <button type="button" class="deleteBtn hidden" id="noteDeleteBtn-${id}">
+                <i class="fa-solid fa-trash"></i>
+            </button>
         </div>
         <div class="card-body">
             <textarea name="noteText" rows="10" class="noteContentText" id="text-${id}" readOnly>${content}</textarea>

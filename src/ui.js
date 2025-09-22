@@ -2,6 +2,7 @@ import {addNewNote, } from "./tickets.js"
 
 export function setupUI(){
     const addBtn = document.getElementById("add-action-btn");
+    const emptyAddBtn = document.getElementById("empty-add-btn");
     const addNoteModal = document.getElementById("addNoteModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
     const closeModalFooterBtn = document.getElementById("closeNoteModal");
@@ -14,6 +15,10 @@ export function setupUI(){
 
         // Modal close and open
     addBtn.addEventListener("click", () => {
+        addNoteModal.classList.remove('hidden');
+    });
+    
+    emptyAddBtn.addEventListener("click", () => {
         addNoteModal.classList.remove('hidden');
     });
 
