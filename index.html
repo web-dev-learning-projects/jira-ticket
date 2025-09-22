@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style/style.css">
     <title>Jira Ticket</title>
@@ -20,14 +21,25 @@
             <button class="add-note-btn-modal btn" id="add-action-btn">
                 <i class="fa-solid fa-plus"></i>
             </button>
-            <button class="delete-note-btn btn" disabled>
+            <!-- <button class="delete-note-btn btn" disabled>
                 <i class="fa-solid fa-trash"></i>
-            </button>
+            </button> -->
         </div>
     </div>
 
     <!-- Main container -->
     <main class="main-container">
+        <div class="empty-state hidden" id="empty-state">
+            <h2>No notes yet 📌</h2>
+            <p>
+                Start by adding your first sticky note.  
+                You can set a priority color and keep track of important things easily.
+            </p>
+            <button class="" id="empty-add-btn">
+                <i class="fa-solid fa-plus"></i> Add Note
+            </button>
+        </div>
+
         <div class="note-card-container" id="note-card-container">
         </div>
     </main>

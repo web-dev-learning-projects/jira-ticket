@@ -1,0 +1,9 @@
+.note-card-container {
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* responsive grid */
+    gap: 1.2rem;
+    justify-items: center; /* center each card in its grid cell */
+}

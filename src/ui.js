@@ -1,7 +1,8 @@
-import {addNewNote, } from "./tickets.js"
+import {addNewNote, showTickets, } from "./tickets.js"
 
-export function setupUI(tickets){
+export function setupUI(){
     const addBtn = document.getElementById("add-action-btn");
+    const emptyAddBtn = document.getElementById("empty-add-btn");
     const addNoteModal = document.getElementById("addNoteModal");
     const closeModalBtn = document.getElementById("closeModalBtn");
     const closeModalFooterBtn = document.getElementById("closeNoteModal");
@@ -14,6 +15,10 @@ export function setupUI(tickets){
 
         // Modal close and open
     addBtn.addEventListener("click", () => {
+        addNoteModal.classList.remove('hidden');
+    });
+    
+    emptyAddBtn.addEventListener("click", () => {
         addNoteModal.classList.remove('hidden');
     });
 
@@ -30,7 +35,7 @@ export function setupUI(tickets){
         let noteTitle = noteModalTitle.value;
         let noteContent = noteModalContent.value;
         if(noteTitle !== "" && noteContent !== ""){
-            addNewNote(tickets, noteColor, noteTitle, noteContent);
+            addNewNote(noteColor, noteTitle, noteContent);
         }
         noteModalTitle.value = "";
         noteModalContent.value = "";
@@ -44,6 +49,28 @@ export function setupUI(tickets){
                 ele.classList.remove('selected');
             })
             e.target.classList.add('selected');
+        });
+    });
+    
+    const toolboxPriorityColor = Array.from(document.querySelectorAll('.toolbox-container > .priority-btn-container > .toolbox-priority-color'));
+    toolboxPriorityColor.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            toolboxPriorityColor.forEach((ele) => {
+                ele.classList.remove('selected');
+            })
+            e.target.classList.add('selected');
+
+            Array.from(document.querySelectorAll(".note-card")).forEach((card) => {
+                card.classList.remove('hidden');
+                if(e.target.classList[0] != card.querySelector(`.card-color`).classList[1]){
+                    card.classList.add('hidden');
+                }
+            }) 
+
+        });
+        
+        btn.addEventListener("dblclick", (e) => {
+            showTickets();
         });
     });
 }

@@ -1,38 +1,77 @@
 .toolbox-container {
-    height: 5rem;
     background-color: #596275;
     display: flex;
     align-items: center;
-}
-
-.toolbox-container > * {
-    margin-left: 4rem;
-    border-radius: 2rem;
+    justify-content: flex-start; /* spread left/right */
+    gap: 1rem; /* spacing between groups */
+    padding: 0.5rem 1rem; /* breathing room inside */
+    border-radius: 0 0 1rem 1rem; /* optional: rounded bottom */
 }
 
 .priority-btn-container {
-    height: 3.5rem;
-    width: 16rem;
+    flex: 1; /* take available space */
+    max-width: 300px; /* prevent stretching too much on wide screens */
     background-color: #786fa6;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    padding: 0.3rem 0.4rem;
+    border-radius: 2rem;
 }
 
 .toolbox-priority-color {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.ticket-btn-container {    
-    height: 3.5rem;
-    width: 8rem;
-    background-color: #786fa6;
+.toolbox-priority-color:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+.ticket-btn-container {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.add-note-btn-modal,
+.delete-note-btn {
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
+
+.add-note-btn-modal {
+    background-color: #77ec41;
+    color: #fff;
+}
+
+.add-note-btn-modal:hover {
+    background-color: #63c934;
+    transform: scale(1.1);
+}
+
+.delete-note-btn {
+    background-color: #e6241d;
+    color: #fff;
+}
+
+.delete-note-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 
 .add-btn { background-color: #77ec41; }
 .add-note-btn-modal { background-color: #778beb; }
